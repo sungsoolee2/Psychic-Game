@@ -14,29 +14,21 @@ var currentGuess=[];//array to hold guessed letters//
 
 
 
-// get first random letter comLetter//
+// get first random letter compLetter//
 
 var compLetter = randomLetters[Math.floor(Math.random() * randomLetters.length)];
 
-
-
-// console.log(guessesLeft);
-console.log(compLetter);
-
+// console.log(compLetter);
 
 // function for updating guesses left to screen //
-
 
 function countGuessesLeft() {
 	
 	document.getElementById("guessesLeft").innerHTML = "Guesses Left: " + guessesLeft;
-	
-	
-    // console.log(guessesLeft);
+
+//    console.log(guessesLeft);
+
 }
-
-
-
 
 // display wrong guessess so far on screen //
 
@@ -44,8 +36,8 @@ function yourGuesses() {
 
 	document.getElementById("guessesSoFar").innerHTML = "Guesses so far: " + currentGuess+' ';
 
-	
-    // console.log(yourGuesses);
+// console.log(currentGuess);
+
 }
 
 
@@ -58,7 +50,7 @@ document.onkeydown = function(event) {
 	var yourGuess = String.fromCharCode(event.keyCode).toLowerCase();
 
 // assigns keycode from event to var yourGuess//
-//assigns keycode in lower case to yourGuess//
+//converts to  lower case keycode//
 
 	currentGuess.push(yourGuess);
 	
@@ -67,9 +59,6 @@ document.onkeydown = function(event) {
 	countGuessesLeft();
 	yourGuesses();
 
-
-// console.log(yourGuess);
-// console.log(compLetter);
 
 	if (yourGuess === compLetter){
 		wins++;
@@ -89,11 +78,13 @@ document.onkeydown = function(event) {
 //new game with new computer guess//
 
 	function newGame() {
-	guessesLeft = 9;  //reset game to start//
-	currentGuess = []; //clear curentGuess array//
+	guessesLeft = 9; 			 //reset game to start//
+	currentGuess = [];			 //clear curentGuess array//
 	var newLetter = randomLetters[Math.floor(Math.random() * randomLetters.length)];
-	compLetter=newLetter; //assign newLetter generated to compLetter//
-    console.log(compLetter);
+	compLetter=newLetter; 		//assign newLetter generated to compLetter//
+   
+	
+	// console.log(compLetter);
     
 
 }
