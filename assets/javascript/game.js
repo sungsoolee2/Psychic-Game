@@ -24,23 +24,31 @@ var compLetter = randomLetters[Math.floor(Math.random() * randomLetters.length)]
 console.log(compLetter);
 
 
-// function for updating guesses left to screen using css id tag//
+// function for updating guesses left to screen //
 
 
 function countGuessesLeft() {
-	document.querySelector("#guessesLeft").innerHTML = "Guesses Left: " + guessesLeft;
+	
+	document.getElementById("guessesLeft").innerHTML = "Guesses Left: " + guessesLeft;
+	
+	
     // console.log(guessesLeft);
 }
 
 
 
 
-// display wrong guessess so far on screen using css id tag//
+// display wrong guessess so far on screen //
 
 function yourGuesses() {
-	document.querySelector("#guessesSoFar").innerHTML = "Guesses so far: " + currentGuess+' ';
+
+	document.getElementById("guessesSoFar").innerHTML = "Guesses so far: " + currentGuess+' ';
+
+	
     // console.log(yourGuesses);
 }
+
+
 
 // Playing the game when user presses key//
 
@@ -48,23 +56,30 @@ document.onkeydown = function(event) {
 	guessesLeft--;
 
 	var yourGuess = String.fromCharCode(event.keyCode).toLowerCase();
+
+// assigns keycode from event to var yourGuess//
 //assigns keycode in lower case to yourGuess//
-	currentGuess.push(yourGuess);//adds yourGuess to current guess array//
+
+	currentGuess.push(yourGuess);
+	
+//adds yourGuess to current guess array//
+	
 	countGuessesLeft();
 	yourGuesses();
+
+
 // console.log(yourGuess);
 // console.log(compLetter);
 
 	if (yourGuess === compLetter){
 		wins++;
-		document.querySelector("#wins").innerHTML = "Wins: " + wins;
-		
+		document.getElementById("wins").innerHTML = "Wins: " + wins;
 		newGame();
 	} 
 	else if (guessesLeft === 0) {
 		losses++;
+		document.getElementById("loses").innerHTML = "Loses: " + losses;
 		
-		document.querySelector("#loses").innerHTML = "Loses: " + losses;
 		newGame();
 	}
   };
